@@ -162,7 +162,7 @@ class Point(val x: Int, val y: Int)(implicit coord: Coord)
       (class_parameter (identifier) (type_identifier))
       (class_parameter (identifier) (type_identifier)))
     (class_parameters
-      (class_parameter (identifier) (type_identifier)))))
+      (class_parameter (modifiers) (identifier) (type_identifier)))))
 
 =======================================
 Modifiers
