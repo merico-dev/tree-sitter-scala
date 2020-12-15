@@ -295,3 +295,71 @@ class C {
             (prefix_expression (identifier))
             (operator_identifier)
             (identifier)))))))
+
+
+===============================
+For expressions
+===============================
+
+class C {
+  def main() {
+    for (a <- numList
+         if a != 10; if a < 8) {
+        println(a);
+        println(b)
+    }
+  }
+}
+
+---
+
+(compilation_unit
+  (class_definition
+    name: (identifier)
+    body: (template_body
+      (function_definition
+        name: (identifier)
+        parameters: (parameters)
+        body: (block
+          (for_expression
+            enumerator: (enumerator
+              (generator
+                pattern: (identifier)
+                (identifier)
+                (guard
+                  (infix_expression
+                    left: (identifier)
+                    (operator_identifier)
+                    right: (number)))
+                (guard
+                  (infix_expression
+                    left: (identifier)
+                    (operator_identifier)
+                    right: (number)))))
+            (block
+              (call_expression
+                function: (identifier)
+                (arguments
+                  (identifier)))
+              (call_expression
+                function: (identifier)
+                (arguments
+                  (identifier))))))))))
+
+
+===============================
+Return expressions
+===============================
+
+def main() {
+  return
+}
+
+---
+
+(compilation_unit
+  (function_definition
+    (identifier)
+    (parameters)
+    (block
+      (return_expression))))
