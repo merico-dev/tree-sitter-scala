@@ -2770,6 +2770,16 @@
     "type": "trait_definition",
     "named": true,
     "fields": {
+      "body": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "template_body",
+            "named": true
+          }
+        ]
+      },
       "extend": {
         "multiple": false,
         "required": false,
@@ -2811,10 +2821,6 @@
         },
         {
           "type": "modifiers",
-          "named": true
-        },
-        {
-          "type": "template_body",
           "named": true
         }
       ]
