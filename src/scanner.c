@@ -81,6 +81,14 @@ bool tree_sitter_scala_external_scanner_scan(void *payload, TSLexer *lexer,
     // expression, in which case we don't recognize it as an automatic semicolon.
     if (lexer->lookahead == '.') return false;
 
+    // NOTE: When there's an open curly brace after a new line it could be a function body
+    // in which case we don't recognize it as an automatic semicolon.
+    if (lexer->lookahead == '{') return false;
+
+    // NOTE: When there's an open brace after a new line it could be a function call expression,
+    // in which case we don't recognize it as an automatic semicolon.
+    if (lexer->lookahead == '(') return false;
+
     lexer->mark_end(lexer);
     lexer->result_symbol = AUTOMATIC_SEMICOLON;
 
