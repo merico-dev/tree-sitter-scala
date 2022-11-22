@@ -1,6 +1,6 @@
-==========================
+================================================================================
 Multi-line strings
-==========================
+================================================================================
 
 val string = """
   a
@@ -8,14 +8,16 @@ val string = """
   c
 """
 
----
+--------------------------------------------------------------------------------
 
 (compilation_unit
-  (val_definition (identifier) (string)))
+  (val_definition
+    (identifier)
+    (string)))
 
-==========================
+================================================================================
 Interpolated strings
-==========================
+================================================================================
 
 val string1 = "a $b c ${d} e"
 
@@ -28,24 +30,28 @@ val string3 = """
   ${d}
 """
 
----
+--------------------------------------------------------------------------------
 
 (compilation_unit
-  (val_definition (identifier) (string
-    (interpolation (identifier))
-    (interpolation (block (identifier)))))
-  (val_definition (identifier) (string (interpolation (identifier))))
-  (val_definition (identifier) (string
-    (interpolation (identifier))
-    (interpolation (block (identifier))))))
+  (val_definition
+    (identifier)
+    (string))
+  (val_definition
+    (identifier)
+    (string))
+  (val_definition
+    (identifier)
+    (string)))
 
-==========================
+================================================================================
 Floating point numbers
-==========================
+================================================================================
 
 val string = 3.14
 
----
+--------------------------------------------------------------------------------
 
 (compilation_unit
-  (val_definition (identifier) (number)))
+  (val_definition
+    (identifier)
+    (floating_point_literal)))
