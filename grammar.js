@@ -673,6 +673,7 @@ module.exports = grammar({
     infix_expression: $ => prec.left(PREC.infix, seq(
       field('left', $.expression),
       choice($.identifier, $.operator_identifier),
+      optional($._automatic_semicolon),
       field('right', $.expression)
     )),
 
